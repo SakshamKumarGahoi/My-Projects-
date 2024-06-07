@@ -1,1 +1,3 @@
-Some of my works done with the help of content avalaible online such as , geeksforgeeks, youtube videos , turtorials etc , with some changes added by me , will be adding refrences as well
+A Weather  App created using OpenWeather API to track the weather of any city around the globe
+helps us keep in touch with the weather and can save peole during calamities and lets us know about our surroundings 
+refrences : GreatStack on youtube , GeeksforGeeks , etc
