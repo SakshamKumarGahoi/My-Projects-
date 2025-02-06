@@ -5,7 +5,7 @@
             "type": "java",
             "name": "Launch JavaFX App",
             "request": "launch",
-            "mainClass": "your.package.SudokuSolver", // Replace with your main class
+            "mainClass": "SudokuSolver", // Replace with your main class
             "vmArgs": "--module-path E:/codeplugins/javafx-sdk-23.0.2/lib--add-modules javafx.controls,javafx.fxml,javafx.swing,javafx.web,javafx.graphics,javafx.media,javafx.base"
         }
     ]
