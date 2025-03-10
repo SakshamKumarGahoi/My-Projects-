@@ -1,0 +1,6 @@
+// src/main/java/com/cloud/filesharing/User.java
+package com.cloud.filesharing.entity;
+
+public class User {
+    // Placeholder for user entity
+}
