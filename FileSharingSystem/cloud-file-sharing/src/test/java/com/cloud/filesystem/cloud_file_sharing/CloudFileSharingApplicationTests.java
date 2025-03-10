@@ -1,10 +1,10 @@
-package com.saksham.file_sharing_platform;
+package com.cloud.filesystem.cloud_file_sharing;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FileSharingPlatformApplicationTests {
+class CloudFileSharingApplicationTests {
 
 	@Test
 	void contextLoads() {

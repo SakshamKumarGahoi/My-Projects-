@@ -8,11 +8,11 @@
 		<version>3.4.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.saksham</groupId>
-	<artifactId>file-sharing-platform</artifactId>
+	<groupId>com.cloud.filesystem</groupId>
+	<artifactId>cloud-file-sharing</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>file-sharing-platform</name>
-	<description>A personal project to understand fullstack via spring boot and react and sql</description>
+	<name>cloud-file-sharing</name>
+	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -27,7 +27,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>22</java.version>
+		<java.version>21</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -43,12 +43,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -68,14 +62,6 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-           
-		<dependency>
-			<groupId>io.awspring.cloud</groupId>
-			<artifactId>spring-cloud-aws-dependencies</artifactId>
-			<version>2.3.0</version>
-			<type>pom</type>
-			<scope>import</scope>
 		</dependency>
 	</dependencies>
 
