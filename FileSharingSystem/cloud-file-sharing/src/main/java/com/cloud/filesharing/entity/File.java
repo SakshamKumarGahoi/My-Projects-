@@ -9,6 +9,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
 import lombok.Data;
 
 @Entity
@@ -41,4 +42,12 @@ public class File {
         inverseJoinColumns = @JoinColumn(name = "user_id")
     )
     private Set<User> sharedWith;
+
+    @ManyToMany
+    @JoinTable(
+        name = "share",
+        joinColumns = @JoinColumn(name = "file_id"),
+        inverseJoinColumns = @JoinColumn(name = "user_id")
+        ) 
+    private List<Share> shares;
 }

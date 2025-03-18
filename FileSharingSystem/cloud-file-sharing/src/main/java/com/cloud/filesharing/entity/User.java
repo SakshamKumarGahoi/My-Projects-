@@ -26,6 +26,14 @@ private String password;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<File> files;   
 
+    @ManyToMany
+    @JoinTable(
+        name = "share",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "file_id")
+    )
+    private List<Share> shares;
+
     // GETTERS AND SETTERS
 
 public Long getId(){ return id; }

@@ -40,7 +40,7 @@ public class Share {
     @Column(name = "message", columnDefinition = "TEXT")
     private String message;
 
-    @IdClass
+    @IdClass(Share.PK.class)
     public static class PK implements Serializable {
         @Id
         @Column(name = "user_id")
@@ -80,6 +80,10 @@ public class Share {
             if (o == null || getClass() != o.getClass()) return false;
             PK pk = (PK) o;
             return Objects.equals(userId, pk.userId) && Objects.equals(fileId , pk.fileId);
+        }
+        @Override
+        public int hashCode() {
+            return Objects.hash(userId, fileId);
         }
     }
 }
