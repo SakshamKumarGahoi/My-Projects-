@@ -5,13 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import com.cloud.filesharing.repository.*;
 import com.cloud.filesharing.repository.UserRepository;
-import com.cloud.filesharing.exception.UsernameAlreadyExistsException;
+import com.cloud.filesharing.exceptions.UsernameAlreadyExistsException;
 
 public class UserServiceImpl extends UserService{
 private final UserRepository  userRepository;
 private final FileRepository fileRepository;
 private final RoleRepository roleRepository;
-
+private final PasswordEncoder passwordEncoder;
+@Autowired
 public UserServiceImpl(UserRepository userRepository,
                        PasswordEncoder passwordEncoder,
                        RoleRepository roleRepository) {
