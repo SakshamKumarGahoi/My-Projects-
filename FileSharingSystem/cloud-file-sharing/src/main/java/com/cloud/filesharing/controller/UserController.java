@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import com.cloud.filesharing.entity.User;
 
 @RestController
@@ -17,13 +16,13 @@ public class UserController {
      @Autowired
      private UserService userService;
      @GetMapping
-     public ResponseEntity<List<User>> getAllUsers(){
-        List<User> users = userService.getAllUsers();
+     public ResponseEntity<List<User>> findAllUsers(){
+        List<User> users = userService.findAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
      }
      @PostMapping
-     public ResponseEntity<User> createUser(@RequestBody User user){
-        return new ResponseEntity<>(userService.createUser(user), HttpStatus.CREATED);
+     public ResponseEntity<User> saveUser(@RequestBody User user){
+        return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
      }
      @PutMapping("/{id}")
      public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user){

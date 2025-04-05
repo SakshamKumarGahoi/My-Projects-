@@ -22,7 +22,7 @@ public class UserService {
         return userRepository.findById(userId).orElse(null);
     }
 
-    public User updateUser(User user){
+    public User updateUser(Long id, User user){
         if(userRepository.existsById(user.getId())){
             return userRepository.save(user);
         }
