@@ -1,6 +1,7 @@
 package com.cloud.filesharing.service;
 import com.cloud.filesharing.config.SecurityConfig;
 import com.cloud.filesharing.entity.User;
+import com.cloud.filesharing.entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import com.cloud.filesharing.repository.*;
@@ -15,10 +16,12 @@ private final PasswordEncoder passwordEncoder;
 @Autowired
 public UserServiceImpl(UserRepository userRepository,
                        PasswordEncoder passwordEncoder,
-                       RoleRepository roleRepository) {
+                       RoleRepository roleRepository,
+                       FileRepository fileRepository) {
 this.userRepository = userRepository;
 this.passwordEncoder = passwordEncoder;
 this.roleRepository = roleRepository;
+this.fileRepository = fileRepository;
                        }
 @Override
 public User saveUser(User user) {
@@ -27,7 +30,7 @@ public User saveUser(User user) {
         throw new UsernameAlreadyExistsException("Username already exists");
     }
 
-    //default role 
+    user.setRole(roleRepository.findByName(ERole.USER).orElseThrow(() -> new RuntimeException("Error: User Role is not found.")));
     user.setRole(roleRepository.findByName(Erole.USER).orElseThrow(() -> new RuntimeException("Error: User Role is not found.")));
     //hashing the password
     user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -36,7 +39,7 @@ public User saveUser(User user) {
 
 @Override
 public User createAdminUser(User user){
-    //setting admin roles
+    user.setRole(roleRepository.findByName(ERole.ADMIN).orElseThrow(() -> new RuntimeException("Error: Admin Role is not found.")));
     user.SetRole(roleRepository.findByName(ERole.ADMIN).orElseThrow(() -> new RuntimeException("Error: Admin Role is not found.")));
     //hashing the password
     user.setPassword(passwordEncoder.encode(user.getPassword()));
