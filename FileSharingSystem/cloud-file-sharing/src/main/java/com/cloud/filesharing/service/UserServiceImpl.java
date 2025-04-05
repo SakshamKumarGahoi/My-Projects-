@@ -21,9 +21,9 @@ this.passwordEncoder = passwordEncoder;
 this.roleRepository = roleRepository;
                        }
 @Override
-public User registerUser(User user) {
+public User saveUser(User user) {
     //check for user existence
-    if(userRepository.existsByUsername(user.getUsername()) != null){
+    if(userRepository.existsByUsername(user.getUsername())){
         throw new UsernameAlreadyExistsException("Username already exists");
     }
 
